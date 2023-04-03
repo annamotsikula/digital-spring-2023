@@ -1,0 +1,19 @@
+h2 {
+   color: red
+}
+.title {
+    color: grey
+}
+.box {
+    width: 300px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    .txt {
+        background-color: aqua;
+    }
+    button {
+        cursor: pointer;
+    }
+}
