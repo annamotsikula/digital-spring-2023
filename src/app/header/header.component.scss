@@ -1,0 +1,14 @@
+.header {
+    height: 50px;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    padding: 8px 20px;
+    img {
+        height: 100%;
+    }
+    h2 {
+        font-size: 18px;
+    }
+}

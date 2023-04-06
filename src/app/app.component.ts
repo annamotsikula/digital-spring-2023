@@ -7,19 +7,7 @@ import { IPerson } from './app.interface';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-tutor';
-  number: number = 15
-  
-  mySister: IPerson = {
-    fistName: 'Kate',
-    lastName: 'Smith'
-  }  
-
-  increment() {
-    console.log('You have clicked on this button')
-    this.number = this.number + 10
-  }
-  
+ 
   
 }
 
