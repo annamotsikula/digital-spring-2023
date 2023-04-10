@@ -6,13 +6,15 @@ import { HeaderComponent } from './header/header.component';
 import { MainComponent } from './main/main.component';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
+import { StudentCardComponent } from './student-card/student-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     MainComponent,
-    FooterComponent
+    FooterComponent,
+    StudentCardComponent
   ],
   imports: [
     BrowserModule,

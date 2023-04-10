@@ -24,37 +24,18 @@
         <p>Student Status:</p>
         <input type="checkbox" [(ngModel)]="student.isStudent" />
       </div>
-      <div class="field">
-        <p>Student Status</p>
-        <div>
-          <span>YES:</span>
-          <input type="radio" [(ngModel)]="student.isStudent" value="true" style="margin-left: 5px"/>
-          <span>NO:</span>
-          <input type="radio" [(ngModel)]="student.isStudent" value="false"  style="margin-left: 5px"/>
+      <div>
+        <h4>Get Student</h4>
+        <div class="d-flex p-2">
+          <button class="btn btn-primary" (click)="getStudentById(studentId)">Generate Student</button>
+          <input type="number" [(ngModel)]="studentId">
+        </div>
+        <div class="d-flex p-2">
+          <button class="btn btn-primary" (click)="getStudent()">Get Student</button>
+          <input type="text" [(ngModel)]="studentName">
         </div>
       </div>
     </div>
-    <!-- CARD -->
-    <div class="student-card">
-      <div class="st-card">
-        <div class="st-card-image">
-          <img [src]="student.photourl" alt="Student Photo"/>
-        </div>
-        <div class="st-card-info">
-          <p>
-            <strong id="name">{{student.name}}</strong><br />
-            <span id="studentNumber">{{student.personalNumber}}</span>
-          </p>
-          <p>{{student.gender}}</p>
-          <p>{{student.isStudent ? 'Student' : 'Not a student'}}</p>
-          <p class="st-card-date"> </p>
-        </div>
-        <img class="st-icon" src="https://d1fdloi71mui9q.cloudfront.net/pUp0ks3yQ8Ow5OhyG8Zj_5R3P7cnL8k7oItiJ" />
-        <div class="st-card-footer">
-          <span>Card Issue Date: {{student.cardIssueDate}}</span>
-          <span>Valid</span>
-        </div>
-      </div>
-    </div>
+    <app-student-card [student]="student" [favCourses]="student.fav_courses" (emitMessage)="getMessageFromChild($event)" ></app-student-card>
   </div>
 </div>

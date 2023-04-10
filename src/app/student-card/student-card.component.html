@@ -1,0 +1,32 @@
+<div class="student-card">
+    <div class="st-card">
+      <div class="st-card-image">
+        <img [src]="student.photourl" alt="Student Photo"/>
+      </div>
+      <div class="st-card-info">
+        <p>
+          <strong id="name">{{student.name}}</strong><br />
+          <span id="studentNumber">{{student.personalNumber}}</span>
+        </p>
+        <p>{{student.gender}}</p>
+        <p>{{student.isStudent ? 'Student' : 'Not a student'}}</p>
+        <p class="st-card-date"> </p>
+      </div>
+      <img class="st-icon" src="https://d1fdloi71mui9q.cloudfront.net/pUp0ks3yQ8Ow5OhyG8Zj_5R3P7cnL8k7oItiJ"/>
+      <div class="st-card-footer d-flex justify-content-between align-items-center">
+        <span>Card Issue Date: {{ dateToString }}</span>
+        <span class="ms-2">{{ student.valid ? 'Valid' : 'Expired'}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="mt-2 mb-2">
+   <span>Maths: {{favCourses.maths}}</span> <br>
+   <span>Bio: {{favCourses.biology}}</span><br>
+   <span>Physics: {{favCourses.physics}}</span><br>
+   <span>Geography: {{favCourses.geography}}</span>
+  </div>
+  <div class="">
+    <span>Send Message To Parent </span> <br>
+    <textarea cols="30" rows="5" placeholder="Type Something..." [(ngModel)]="messageToSend"></textarea> <br>
+    <button class="btn btn-primary" (click)="sendMessage()">Send</button>
+  </div>

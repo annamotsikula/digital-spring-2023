@@ -6,5 +6,13 @@ export interface IStudent {
     gender: string,
     isStudent: boolean,
     cardIssueDate: Date,
-    valid?: boolean
+    valid?: boolean,
+    fav_courses: ICourses
+}
+
+export interface ICourses {
+    maths: boolean,
+    biology: boolean,
+    geography: boolean,
+    physics: boolean
 }
