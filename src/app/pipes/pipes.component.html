@@ -1,0 +1,27 @@
+<h5> Angular Pipes </h5>
+<div class="mb-2">
+    <h5>String Pipes</h5>
+    <p class="fw-bold">Original title: {{ title }}</p>
+    <p>{{ title | lowercase }}</p>
+    <p>{{ title | uppercase }}</p>
+    <p>{{ title | slice : 5 }}</p>
+    <p>{{ title | slice : 5 : 10 }}</p>
+    
+</div>
+
+<div class="mb-2">
+    <h5>Number Pipes</h5>
+    <p>Original number: {{ myNumber }} </p>
+    <p>{{ myNumber | number : '1.4-8'}}</p>
+    <p>{{ myNumber | percent }}</p>
+
+</div>
+<div>
+    <h5>Date Pipe</h5>
+    <p>
+        Original Date: {{ today }}
+    </p>
+    <p>
+        {{ today  | date : 'medium'}}
+    </p>
+</div>

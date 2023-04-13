@@ -1,0 +1,28 @@
+<p>Built-in directives</p>
+<div>{{ testDirective | json }}</div>
+
+<div>
+    <p>Title: {{ testDirective.title}}</p>
+    <p *ngIf="testDirective.amount === 150 ">Amount: {{ testDirective.amount}}</p>
+    <p *ngIf="testDirective.inStock">in stock: {{ testDirective.inStock}}</p>
+    <p>is Valid: {{ testDirective.isValid}}</p>
+
+</div>
+
+<div class="mt-2">
+    <p class="fw-bold">Products</p>
+    <ng-container *ngFor="let product of products">
+        <div class="card mt-4">
+            <div class="card-header custom" [ngClass]="product.inStock ? 'instock' : 'not-in-stock' " [ngSwitch]="product.category">
+                <span *ngSwitchCase="'clothes'">Clothes Section</span>
+                <span *ngSwitchCase="'shoes'" >Shoes Section</span>
+                <span *ngSwitchDefault>{{product.category | uppercase}}</span>
+            </div>
+            <div class="card-body" >
+              <span class="card-title" [ngStyle]="{'font-size' : product.price === 80 ? '28px': '14px'}" >{{ product.name }}</span>
+              <p class="card-text" [ngClass]="{'colorGreen' : product.inStock }">{{ product.description }}</p>
+            </div>
+        </div>
+    </ng-container>
+</div>
+

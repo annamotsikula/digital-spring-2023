@@ -1,5 +1,5 @@
 <div class="content">
-  <h2 class="title">Welcome to {{ title }}</h2>
+  <h2 class="title" apphighligher>Welcome to {{ title }}</h2>
   <div class="d-flex justify-content-around mt-4">
     <!-- CONFIG -->
     <div class="config-board">
@@ -26,7 +26,7 @@
       </div>
       <div>
         <h4>Get Student</h4>
-        <div class="d-flex p-2">
+        <div class="d-flex p-2" >
           <button class="btn btn-primary" (click)="getStudentById(studentId)">Generate Student</button>
           <input type="number" [(ngModel)]="studentId">
         </div>
@@ -37,5 +37,11 @@
       </div>
     </div>
     <app-student-card [student]="student" [favCourses]="student.fav_courses" (emitMessage)="getMessageFromChild($event)" ></app-student-card>
+  </div>
+  <div>
+    <app-directives></app-directives>
+  </div>
+  <div style="height: 600px">
+    <app-pipes></app-pipes>
   </div>
 </div>

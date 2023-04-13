@@ -7,6 +7,9 @@ import { MainComponent } from './main/main.component';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { StudentCardComponent } from './student-card/student-card.component';
+import { DirectivesComponent } from './directives/directives.component';
+import { ElementHighlighter } from './directives/highlighter.directive';
+import { PipesComponent } from './pipes/pipes.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import { StudentCardComponent } from './student-card/student-card.component';
     HeaderComponent,
     MainComponent,
     FooterComponent,
-    StudentCardComponent
+    StudentCardComponent,
+    DirectivesComponent,
+    ElementHighlighter,
+    PipesComponent
   ],
   imports: [
     BrowserModule,
