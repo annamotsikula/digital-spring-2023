@@ -19,7 +19,11 @@
                 <span *ngSwitchDefault>{{product.category | uppercase}}</span>
             </div>
             <div class="card-body" >
-              <span class="card-title" [ngStyle]="{'font-size' : product.price === 80 ? '28px': '14px'}" >{{ product.name }}</span>
+                <div class="d-flex align-items-center">
+                    <span class="card-title" [ngStyle]="{'font-size' : product.price === 80 ? '28px': '20px'}" >{{ product.name }}</span>
+                    <span class="price ms-3">{{ product.price | currency : 'USD' }}</span>
+                    <span class="sale" *ngIf="product.isOnSale">{{ product.salePercentage | percent : '1.0'}}</span>
+                </div>
               <p class="card-text" [ngClass]="{'colorGreen' : product.inStock }">{{ product.description }}</p>
             </div>
         </div>

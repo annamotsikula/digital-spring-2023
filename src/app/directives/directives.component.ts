@@ -36,7 +36,8 @@ export class DirectivesComponent {
         amount: 12,
         isOnSale: true,
         category: 'shoesg',
-        description: 'Sample boots description'
+        description: 'Sample boots description',
+        salePercentage: 0.25
       },
       {
         name: 'watch',

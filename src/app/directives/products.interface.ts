@@ -5,5 +5,6 @@ export interface Product {
     amount: number;
     isOnSale: boolean;
     category: string;
-    description?: string
+    description?: string;
+    salePercentage?: number;
 }
