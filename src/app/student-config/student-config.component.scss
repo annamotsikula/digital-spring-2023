@@ -1,0 +1,11 @@
+.config-board {
+    display: flex;
+    flex-direction: column;
+    .field {
+        display: flex;
+        margin-bottom: .5rem;
+        p {
+            margin-right: 5px;
+        }
+    }
+ }

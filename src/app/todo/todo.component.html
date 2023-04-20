@@ -1,0 +1,25 @@
+<div class="todo">
+  <div class="input-group mb-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Add your todo..."
+      [(ngModel)]="todoQuery"
+    />
+    <button class="btn btn-secondary" (click)="addTodo(todoQuery)">Add</button>
+  </div>
+  <ul class="list-group">
+    <div *ngFor="let todo of todoList" class="d-flex w-100 justify-content-between mt-3">
+        <li
+          class="list-group-item"
+          [ngStyle]="{ 'text-decoration': todo.completed ? 'line-through' : '' }"
+          [ngClass]="{'list-group-item-danger' : todo.completed }"
+        >
+          {{ todo.title }}
+        </li>
+        <button class="btn btn-danger" (click)="removeTodo(todo.id)">Remove</button>
+        <button class="btn btn-success ms-2" (click)="todo.completed = !todo.completed">{{ todo.completed ? 'Undo' : 'Done'}}</button>
+    </div>
+    <div *ngIf="!todoList.length" class="m-auto"> No todos yet! </div>
+  </ul>
+</div>

@@ -1,0 +1,14 @@
+.todo {
+    width: 700px;
+    margin: 2rem auto;
+    .list-group {
+        .list-group-item {
+            color: purple;
+            width: -webkit-fill-available;
+            &:hover:not(.list-group-item-danger) {
+                background-color: #ebebeb;
+               
+            }
+        }
+    }
+}

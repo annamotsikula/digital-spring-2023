@@ -10,6 +10,8 @@ import { StudentCardComponent } from './student-card/student-card.component';
 import { DirectivesComponent } from './directives/directives.component';
 import { ElementHighlighter } from './directives/highlighter.directive';
 import { PipesComponent } from './pipes/pipes.component';
+import { StudentConfigComponent } from './student-config/student-config.component';
+import { TodoComponent } from './todo/todo.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +22,15 @@ import { PipesComponent } from './pipes/pipes.component';
     StudentCardComponent,
     DirectivesComponent,
     ElementHighlighter,
-    PipesComponent
+    PipesComponent,
+    StudentConfigComponent,
+    TodoComponent
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers:[],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
