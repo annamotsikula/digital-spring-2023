@@ -14,6 +14,7 @@ import { StudentConfigComponent } from './student-config/student-config.componen
 import { TodoComponent } from './todo/todo.component';
 import { TodoItemComponent } from './todo-item/todo-item.component';
 import { AppRoutingModule } from './app-routing.module';
+import { StudentProfileComponent } from './student-profile/student-profile.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AppRoutingModule } from './app-routing.module';
     PipesComponent,
     StudentConfigComponent,
     TodoComponent,
-    TodoItemComponent
+    TodoItemComponent,
+    StudentProfileComponent
   ],
   imports: [
     BrowserModule,

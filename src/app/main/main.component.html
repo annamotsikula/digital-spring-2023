@@ -1,7 +1,4 @@
 <div class="content">
   <h2 class="title" apphighligher>Welcome to {{ title }}</h2>
-  <div class="d-flex justify-content-around mt-5">
-    <app-student-config [student]="student" [validYears]="cardValidNum"></app-student-config>
-    <app-student-card [student]="student" [favCourses]="student.fav_courses" (emitMessage)="getMessageFromChild($event)" ></app-student-card>
-  </div>
+  <router-outlet></router-outlet>
 </div>

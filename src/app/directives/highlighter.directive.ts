@@ -6,7 +6,7 @@ import { Directive, ElementRef } from "@angular/core";
 export class ElementHighlighter {
 
     constructor(private elem: ElementRef) {
-        console.log(this.elem.nativeElement)
+        // console.log(this.elem.nativeElement)
         this.elem.nativeElement.style.backgroundColor = "#ccc"
         this.elem.nativeElement.style.color = "#000"
     }

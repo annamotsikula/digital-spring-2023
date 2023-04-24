@@ -1,19 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoService } from './service/todo.service';
 import { Todo } from './entiity/todo.interface';
+import { StorageService } from '../core/storage.service';
 
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.scss'],
 })
-export class TodoComponent implements OnInit{
+export class TodoComponent extends StorageService implements OnInit{
   todoList: Todo[] = []
   todoQuery: string = ""
-  constructor(private _todoService: TodoService) {}
+  constructor(private _todoService: TodoService) {
+    super();
+  }
 
   ngOnInit(): void {
     this.getTodos();
+    const message = this.get('msg')
+    console.log(message)
     // console.log(this.activeTodos); 
     // console.log(this.doneTodos)
   }

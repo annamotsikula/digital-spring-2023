@@ -1,0 +1,4 @@
+<div class="d-flex justify-content-around mt-5">
+    <app-student-config [student]="student" [validYears]="cardValidNum"></app-student-config>
+    <app-student-card [student]="student" [favCourses]="student.fav_courses" (emitMessage)="getMessageFromChild($event)" ></app-student-card>
+</div>
