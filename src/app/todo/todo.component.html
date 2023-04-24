@@ -8,18 +8,34 @@
     />
     <button class="btn btn-secondary" (click)="addTodo(todoQuery)">Add</button>
   </div>
-  <ul class="list-group">
-    <div *ngFor="let todo of todoList" class="d-flex w-100 justify-content-between mt-3">
-        <li
-          class="list-group-item"
-          [ngStyle]="{ 'text-decoration': todo.completed ? 'line-through' : '' }"
-          [ngClass]="{'list-group-item-danger' : todo.completed }"
-        >
-          {{ todo.title }}
-        </li>
-        <button class="btn btn-danger" (click)="removeTodo(todo.id)">Remove</button>
-        <button class="btn btn-success ms-2" (click)="todo.completed = !todo.completed">{{ todo.completed ? 'Undo' : 'Done'}}</button>
+  <div class="d-flex justify-content-between">
+    <div>
+      <h5>Active Todos</h5>
+      <ul class="list-group mt-2">
+        <app-todo-item
+          [todo]="todo"
+          (removeItem)="removeTodo($event)"
+          *ngFor="let todo of activeTodos"
+          class="d-flex w-100 justify-content-between mt-3"
+        ></app-todo-item>
+        <div *ngIf="!activeTodos.length" class="m-auto alert alert-warning">
+          No active todos to display
+        </div>
+      </ul>
     </div>
-    <div *ngIf="!todoList.length" class="m-auto"> No todos yet! </div>
-  </ul>
+    <div>
+      <h5>Done Todo List</h5>
+      <ul class="list-group mt-2">
+        <app-todo-item
+        [todo]="todo"
+        (removeItem)="removeTodo($event)"
+        *ngFor="let todo of doneTodos"
+        class="d-flex w-100 justify-content-between mt-3"
+      ></app-todo-item>
+        <div *ngIf="!doneTodos.length" class="m-auto alert alert-warning">
+          Nothing done yet
+        </div>
+      </ul>
+    </div>
+  </div>
 </div>

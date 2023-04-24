@@ -1,10 +1,9 @@
 .header {
     height: 50px;
-    width: 100%;
-    border-bottom: 1px solid #ccc;
     display: flex;
     align-items: center;
     padding: 8px 20px;
+    cursor: pointer;
     img {
         height: 100%;
     }

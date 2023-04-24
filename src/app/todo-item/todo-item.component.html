@@ -1,0 +1,11 @@
+<li
+  class="list-group-item"
+  [ngStyle]="{ 'text-decoration': todo.completed ? 'line-through' : '' }"
+  [ngClass]="{ 'list-group-item-danger': todo.completed }"
+>
+  {{ todo.title }}
+</li>
+<button class="btn btn-danger" (click)="getId(todo.id)">Remove</button>
+<button class="btn btn-success ms-2" (click)="todo.completed = !todo.completed">
+  {{ todo.completed ? "Undo" : "Done" }}
+</button>

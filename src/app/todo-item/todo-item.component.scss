@@ -1,0 +1,8 @@
+.list-group-item {
+    color: purple;
+    width: -webkit-fill-available;
+    &:hover:not(.list-group-item-danger) {
+        background-color: #ebebeb;
+       
+    }
+}

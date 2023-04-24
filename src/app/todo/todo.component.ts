@@ -13,7 +13,9 @@ export class TodoComponent implements OnInit{
   constructor(private _todoService: TodoService) {}
 
   ngOnInit(): void {
-    this.getTodos()
+    this.getTodos();
+    // console.log(this.activeTodos); 
+    // console.log(this.doneTodos)
   }
 
 
@@ -34,7 +36,14 @@ export class TodoComponent implements OnInit{
 
   }
 
+  get activeTodos() {
+    return this.todoList.filter(i=> !i.completed)
+  }
 
+  get doneTodos() {
+    return this.todoList.filter(i=> i.completed)
+
+  }
 
 
 

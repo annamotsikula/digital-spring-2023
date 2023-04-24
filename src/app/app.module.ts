@@ -12,6 +12,8 @@ import { ElementHighlighter } from './directives/highlighter.directive';
 import { PipesComponent } from './pipes/pipes.component';
 import { StudentConfigComponent } from './student-config/student-config.component';
 import { TodoComponent } from './todo/todo.component';
+import { TodoItemComponent } from './todo-item/todo-item.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -24,11 +26,13 @@ import { TodoComponent } from './todo/todo.component';
     ElementHighlighter,
     PipesComponent,
     StudentConfigComponent,
-    TodoComponent
+    TodoComponent,
+    TodoItemComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers:[],
   bootstrap: [AppComponent]

@@ -1,6 +1,19 @@
-<div class="header">
-    <img [src]="mainLogo" alt="">
-    <h2 class="mb-0 ms-2">Angular Course</h2>
+<div class="d-flex justify-content-between p-2">
+    <div class="header" (click)="redirectToMain()">
+        <img [src]="mainLogo" alt="">
+        <h2 class="mb-0 ms-2">Angular Course</h2>
+    </div>
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="todo" >Todo App</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="directives" >Directives</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="pipes" >Pipes</a>
+          </li>
+    </ul>
 </div>
 
 
