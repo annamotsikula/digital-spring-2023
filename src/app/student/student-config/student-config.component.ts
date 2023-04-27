@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { IStudent } from '../main/student.interface';
+import { IStudent } from '../../main/student.interface';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-student-config',
@@ -137,6 +138,23 @@ ngOnChanges(changes: SimpleChanges) {
       console.log(`Student was found with personal number ${foundStudent.personalNumber}`)
     }
 
+
+
+  }
+
+  onSubmit(form: NgForm) {
+    console.log(form)
+    if(form.valid) {
+      const studentFormValue = form.value
+      this.student.name = studentFormValue.name
+      this.student.cardIssueDate = new Date(studentFormValue.cardDate)
+      this.student.personalNumber = studentFormValue.personalNumber
+      this.student.gender = studentFormValue.gender
+      this.student.cardColor = studentFormValue.cardColor
+
+    } else {
+      console.log('This form is invalid')
+    }
 
 
   }

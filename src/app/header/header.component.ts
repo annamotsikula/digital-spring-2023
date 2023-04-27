@@ -10,26 +10,32 @@ import { NavMenu } from './nav.interface';
 export class HeaderComponent implements OnInit {
   
   mainLogo : string = "https://d1fdloi71mui9q.cloudfront.net/pUp0ks3yQ8Ow5OhyG8Zj_5R3P7cnL8k7oItiJ"
-
+  
   navigationLinks: NavMenu[] = [
     {
       path: '/',
-      name: 'Main'
-    },
-    {
-      path: 'main/todo',
-      name: 'Todo App'
+      name: 'Main',
+      children: [
+        {
+          path: 'main/todo',
+          name: 'Todo App'
+        },
+        {
+          path: 'main/directives',
+          name: 'Directives'
+    
+        },
+        {
+          path: 'main/pipes',
+          name: 'Pipes'
+        }
 
+      ]
     },
     {
-      path: 'main/directives',
-      name: 'Directives'
-
+      path: 'student-profile',
+      name: 'Student Profile'
     },
-    {
-      path: 'main/pipes',
-      name: 'Pipes'
-    }
   ]
 
   constructor(private _router: Router) {}

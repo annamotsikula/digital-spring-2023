@@ -4,7 +4,7 @@ import { MainComponent } from './main/main.component';
 import { TodoComponent } from './todo/todo.component';
 import { DirectivesComponent } from './directives/directives.component';
 import { PipesComponent } from './pipes/pipes.component';
-import { StudentProfileComponent } from './student-profile/student-profile.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -16,10 +16,6 @@ const routes: Routes = [
     path: 'main',
     component: MainComponent,
     children: [
-      {
-        path: '',
-        component: StudentProfileComponent
-      },
       {
         path: 'todo',
         component: TodoComponent
@@ -34,6 +30,15 @@ const routes: Routes = [
       }
     ]
   },
+  {
+    path: 'student-profile',
+    loadChildren: () => import('./student/student.module').then(m => m.StudentModule)
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent
+  },
+ 
 ]
 
 @NgModule({

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { IStudent } from '../main/student.interface';
-import { StorageService } from '../core/storage.service';
+import { IStudent } from '../../main/student.interface';
+import { StorageService } from '../../core/storage.service';
 
 @Component({
   selector: 'app-student-profile',

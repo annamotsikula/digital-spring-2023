@@ -7,7 +7,8 @@ export interface IStudent {
     isStudent: boolean,
     cardIssueDate: Date,
     valid?: boolean,
-    fav_courses: ICourses
+    fav_courses: ICourses;
+    cardColor?: string
 }
 
 export interface ICourses {

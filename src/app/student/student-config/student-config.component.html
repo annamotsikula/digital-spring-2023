@@ -1,0 +1,102 @@
+<div class="config-board">
+  <h3>Fill your info to get your card</h3>
+    <!-- <button (click)="displayStudentInfo()">log today</button>
+    <div class="field">
+      <p>Student Name:</p>
+      <input type="text" [(ngModel)]="student.name" />
+    </div>
+    <div class="field">
+      <p>Personal Number:</p>
+      <input type="text" [(ngModel)]="student.personalNumber" />
+    </div>
+    <div class="field">
+      <p>Select Gender:</p>
+      <select (change)="selectGender($event)">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+    <div class="field">
+      <p>Student Status:</p>
+      <input type="checkbox" [(ngModel)]="student.isStudent" />
+    </div>
+    <div>
+      <h4>Get Student</h4>
+      <div class="d-flex p-2" >
+        <button class="btn btn-primary" (click)="getStudentById(studentId)">Generate Student</button>
+        <input type="number" [(ngModel)]="studentId">
+      </div>
+      <div class="d-flex p-2">
+        <button class="btn btn-primary" (click)="getStudent()">Get Student</button>
+        <input type="text" [(ngModel)]="studentName">
+      </div>
+    </div> -->
+    <div class="mt-2">
+      <form #studentForm="ngForm" (ngSubmit)=onSubmit(studentForm)> 
+        <div class="mb-3 row">
+          <label for="staticEmail" class="col-sm-2 col-form-label">Name</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" #name="ngModel" name="name" ngModel required>
+            <div class="text-danger" *ngIf="name.invalid && name.touched">
+              This field is required
+            </div>
+          </div>
+        </div>  
+        <div class="mb-3 row">
+          <label for="staticEmail" class="col-sm-2 col-form-label">Personal Number</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control"  #personalNumber="ngModel" name="personalNumber" ngModel required>
+            <div class="text-danger" *ngIf="personalNumber.invalid && personalNumber.touched">
+              This field is required
+            </div>
+          </div>
+        </div>  
+        <div class="mb-3 row">
+          <label for="staticEmail" class="col-sm-2 col-form-label">Gender</label>
+          <div class="col-sm-10">
+            <select name="gender" #gender="ngModel" ngModel required>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+            <div class="text-danger"  *ngIf="gender.invalid && gender.touched">
+              This field is required
+            </div>
+          </div>
+        </div> 
+        <div class="mb-3 row">
+          <label for="staticEmail" class="col-sm-2 col-form-label">Phone Number</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" #mobileNumber="ngModel" name="mobileNumber" ngModel required>
+            <div class="text-danger" *ngIf="mobileNumber.invalid && mobileNumber.touched">
+              This field is required
+            </div>
+          </div>
+        </div> 
+        <div class="mb-3 row">
+          <label for="staticEmail" class="col-sm-2 col-form-label">Student Status</label>
+          <div class="col-sm-10" required>
+            <input type="radio" name="studentStatus" value="yes" ngModel >Yes
+            <input type="radio" name="studentStatus" value="no" ngModel >No
+          </div>
+        </div> 
+        <div class="mb-3 row">
+          <label for="staticEmail" class="col-sm-2 col-form-label">Year of Study</label>
+          <div class="col-sm-10">
+            <input type="date" name="cardDate"  ngModel required>
+            <div class="text-danger" *ngIf="mobileNumber.invalid && mobileNumber.touched">
+              This field is required
+            </div>
+          </div>
+        </div> 
+        <div class="mb-3 row">
+          <label for="staticEmail" class="col-sm-2 col-form-label">Choose card color</label>
+          <div class="col-sm-10">
+            <input type="color" name="cardColor"  ngModel required>
+          </div>
+        </div> 
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>

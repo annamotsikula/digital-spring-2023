@@ -1,13 +1,29 @@
 <div class="d-flex justify-content-between p-2">
-    <div class="header" (click)="redirectToMain()">
-        <img [src]="mainLogo" alt="">
-        <h2 class="mb-0 ms-2">Angular Course</h2>
-    </div>
-    <ul class="nav nav-pills">
-      <li class="nav-item" *ngFor="let nav of navigationLinks">
-        <a class="nav-link" [routerLink]="nav.path" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">{{nav.name}}</a>
-      </li>
-    </ul>
+  <div class="header" (click)="redirectToMain()">
+    <img [src]="mainLogo" alt="" />
+    <h2 class="mb-0 ms-2">Angular Course</h2>
+  </div>
+  <ul class="nav nav-pills me-2 ms-2">
+    <li class="nav-item dropdown" *ngFor="let nav of navigationLinks">
+      <a
+        class="nav-link"
+        [routerLink]="nav.path"
+        [routerLinkActiveOptions]="{exact: true}"
+        routerLinkActive="active"
+        [ngClass]="{'dropdown-toggle' : nav.children}"
+        >{{ nav.name }}</a
+      >
+      <ul class="dropdown-menu" *ngIf="nav.children">
+        <li *ngFor="let childnav of nav.children">
+          <a
+            class="dropdown-item"
+            [routerLink]="childnav.path"
+            routerLinkActive="active"
+            >{{ childnav.name }}</a
+          >
+        </li>
+      </ul>
+
+    </li>
+  </ul>
 </div>
-
-

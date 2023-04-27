@@ -11,3 +11,9 @@
         font-size: 18px;
     }
 }
+
+.nav-item.dropdown:hover {
+    .dropdown-menu {
+        display: block;
+    }
+}

@@ -13,8 +13,8 @@
         <p class="st-card-date"> </p>
       </div>
       <img class="st-icon" src="https://d1fdloi71mui9q.cloudfront.net/pUp0ks3yQ8Ow5OhyG8Zj_5R3P7cnL8k7oItiJ"/>
-      <div class="st-card-footer d-flex justify-content-between align-items-center">
-        <span>Card Issue Date: {{ dateToString }}</span>
+      <div class="st-card-footer d-flex justify-content-between align-items-center" [ngStyle]="{'background-color' : student.cardColor }">
+        <span>Card Issue Date: {{ student.cardIssueDate | date : 'short' }}</span>
         <span class="ms-2">{{ student.valid ? 'Valid' : 'Expired'}}</span>
       </div>
     </div>
