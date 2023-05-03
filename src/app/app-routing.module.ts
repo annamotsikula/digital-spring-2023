@@ -5,6 +5,7 @@ import { TodoComponent } from './todo/todo.component';
 import { DirectivesComponent } from './directives/directives.component';
 import { PipesComponent } from './pipes/pipes.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { StudentResumeComponent } from './student-resume/student-resume.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
     path: 'main',
     component: MainComponent,
     children: [
+      {
+        path: '',
+        component: StudentResumeComponent
+      },
       {
         path: 'todo',
         component: TodoComponent

@@ -1,0 +1,96 @@
+<div class="resume-container">
+    <h4>Student Resume </h4>
+    <button (click)="changeField()">Generate Random Address</button>
+    <div class="resume-builder">
+        <form [formGroup]="resumeForm" (submit)="submit()">
+            <div class="form-field">
+                <span>First Name</span>
+                <input type="text" formControlName="firstName">
+                <div class="text-danger" *ngIf="resumeForm.controls['firstName'].invalid && (resumeForm.controls['firstName'].dirty || resumeForm.controls['firstName'].touched)">
+                    *This field is required
+                </div>
+            </div>
+            <div class="form-field">
+                <span>Last Name</span>
+                <input type="text" formControlName="lastName" >
+                <div class="text-danger" *ngIf="resumeForm.controls['lastName'].invalid && (resumeForm.controls['lastName'].dirty || resumeForm.controls['lastName'].touched)">
+                    <div *ngIf="resumeForm.controls['lastName'].errors">
+                        <div class="text-danger" *ngIf="resumeForm.controls['lastName'].errors['required']" >*This field is required</div>
+                        <div class="text-danger" *ngIf="resumeForm.controls['lastName'].errors['minlength']" >*Provide at least 2 symbols</div>
+                    </div>
+                </div>
+            </div>  
+            <div class="form-field">
+                <span>Email</span>
+                <input type="text" formControlName="email" >
+                <div class="text-danger" *ngIf="resumeForm.controls['email'].errors && resumeForm.controls['lastName'].invalid && (resumeForm.controls['email'].dirty || resumeForm.controls['email'].touched)" >
+                    <div class="text-danger" *ngIf="resumeForm.controls['email'].errors['required']" >*This field is required</div>
+                    <div class="text-danger" *ngIf="resumeForm.controls['email'].errors['email']">*Email type is not correct</div>
+                </div>
+            </div>
+            <div class="form-field">
+                <span>Age</span>
+                <input type="number" formControlName="age">
+                <div class="text-danger" *ngIf="ageControl.invalid && (ageControl.touched || ageControl.dirty)">
+                    <div *ngIf="ageControl.errors">
+                        <span *ngIf="ageControl.errors['ageNotFit']">*Age must be above 18 and under 65</span>
+                        <span *ngIf="ageControl.errors['required']">*Age is required</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" formGroupName="address">
+                <span>Address</span>
+                    <div class="form-field">
+                        <span>City</span>
+                        <input type="text" formControlName="city">
+                    </div>
+                    <div class="form-field">
+                        <span>Country</span>
+                        <select formControlName="country">
+                            <option value="">Choose Country</option>
+                            <option [value]="country" *ngFor="let country of countryList">{{country}}</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <span>Street</span>
+                        <input type="text" formControlName="street">
+                    </div>
+                    <div formGroupName="additionalInfo" class="form-group">
+                        <div class="form-field">
+                            <span>Street (Optional 1)</span>
+                            <input type="text" formControlName="street1">
+                        </div>
+                        <div class="form-field">
+                            <span>Street (Optional 2)</span>
+                            <input type="text" formControlName="street2">
+                        </div>
+
+                    </div>
+            </div>
+            <div class="form-array" formArrayName="skills">
+                <p>Skills</p>
+                <button type="button" (click)="addSkills()">Add New Skill + </button>
+                <div class="form-group d-flex" *ngFor="let skill of skillsArray.controls; let i = index" [formGroupName]="i">
+                    <div class="form-field">
+                        <span>Language</span>
+                        <input type="text" formControlName="lang">
+                    </div>
+                    <div class="form-field">
+                        <span>Level</span>
+                        <input type="text" formControlName="level">
+                    </div>
+                    <div>
+                        <button type="button" (click)="deleteSkill(i)">Delete</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="submit-form">
+                <button type="submit" >Submit</button>
+            </div>
+        </form>
+        {{ resumeForm.status }}
+        {{ resumeForm.errors | json }}
+    </div>
+</div>
