@@ -17,6 +17,10 @@ export class HeaderComponent implements OnInit {
       name: 'Main',
       children: [
         {
+          path: 'main/resume-builder',
+          name: 'Resume Builder'
+        },
+        {
           path: 'main/todo',
           name: 'Todo App'
         },
@@ -40,9 +44,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(private _router: Router) {}
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   redirectToMain() {
     this._router.navigate(['/'])

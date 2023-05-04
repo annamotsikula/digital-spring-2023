@@ -1,0 +1,12 @@
+.form-container {
+    padding: 5px;
+    border: 1px solid #000;
+    display: flex;
+    .form-field {
+        margin-bottom: 10px;
+        span {
+            margin-right: .5rem; 
+        }
+    
+    }
+}

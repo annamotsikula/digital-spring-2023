@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -16,6 +17,8 @@ import { TodoItemComponent } from './todo-item/todo-item.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { StudentResumeComponent } from './student-resume/student-resume.component';
+import { PostsComponent } from './posts/posts.component';
+import { TruncateStringPipe } from './helpers/pipes/truncate.pipe';
 
 @NgModule({
   declarations: [
@@ -30,12 +33,15 @@ import { StudentResumeComponent } from './student-resume/student-resume.componen
     TodoItemComponent,
     PageNotFoundComponent,
     StudentResumeComponent,
+    PostsComponent,
+    TruncateStringPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   
   ],
   providers:[],

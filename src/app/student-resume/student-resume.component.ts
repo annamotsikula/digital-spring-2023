@@ -37,6 +37,9 @@ export class StudentResumeComponent implements OnInit {
   }
   submit() {
     console.log(this.resumeForm)
+    if(this.resumeForm.valid) {
+      // do your stuff
+    }
   }
   addSkills() {
     const newSkill = new FormGroup({
@@ -61,17 +64,17 @@ export class StudentResumeComponent implements OnInit {
   }
 
   changeField() {
-    this.resumeForm.controls['address'].setValue({
-        city: '',
-        country: 'Georgia',
-        street: 'Chavchavadze Ave',
+    this.resumeForm.controls['address'].patchValue({
+        city: 'Tbilisi',
+        // country: 'Georgia',
+        // street: 'Chavchavadze Ave',
         additionalInfo:{
           street1: 'sample 1',
           street2: 'sample 2'
         }
     })
-    this.resumeForm.controls['lastName'].patchValue('Doe')
-    console.log(this.resumeForm)
+    // this.resumeForm.controls['lastName'].patchValue('Doe')
+    // console.log(this.resumeForm)
 
   }
 
