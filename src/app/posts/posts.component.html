@@ -16,23 +16,14 @@
         </div>
         <button class="btn btn-success ms-2" [disabled]="newPostForm.invalid">Submit</button>
         </div>
-  
       </form>
-  
 </div>
-
-
+<div class="d-flex m-2">
+  <input type="text" class="input-field" [(ngModel)]='searchKey'> 
+  <button (click)="searchByKey()">Search</button>
+</div>
 <div class="row">
-    <div class="col-sm-6 mb-3" *ngFor="let post of posts">
-      <div class="card">
-        <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center">
-                <h5 class="card-title">{{post.title}}</h5>
-                <button class="btn btn-warning" (click)="deletePostById(post.id)">X</button>
-            </div>
-          <p class="card-text">{{post.body | truncateString : -4}}</p>
-          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-        </div>
-      </div>
+    <div class="mb-3" *ngFor="let post of posts">
+      <app-post-card [postDetails]="post" (sendPostToDelete)="deletePostById($event)"></app-post-card>
     </div>
 </div>

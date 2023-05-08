@@ -6,7 +6,6 @@ import { DirectivesComponent } from './directives/directives.component';
 import { PipesComponent } from './pipes/pipes.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { StudentResumeComponent } from './student-resume/student-resume.component';
-import { PostsComponent } from './posts/posts.component';
 
 const routes: Routes = [
   {
@@ -18,10 +17,6 @@ const routes: Routes = [
     path: 'main',
     component: MainComponent,
     children: [
-      {
-        path: '',
-        component: PostsComponent
-      },
       {
         path: 'resume-builder',
         component: StudentResumeComponent
@@ -39,6 +34,10 @@ const routes: Routes = [
         component: PipesComponent
       }
     ]
+  },
+  {
+    path: 'posts',
+    loadChildren: () => import('./posts/posts.module').then(m => m.PostsModule)
   },
   {
     path: 'student-profile',

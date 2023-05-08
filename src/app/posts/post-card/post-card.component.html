@@ -1,0 +1,12 @@
+<div class="card">
+  <div class="card-body">
+      <div class="d-flex justify-content-between align-items-center">
+          <h5 class="card-title">{{postDetails.title}}</h5>
+          <button class="btn btn-warning" (click)="sendPostToDelete(postDetails.id!)">X</button>
+      </div>
+    <p class="card-text">{{postDetails.body | truncateString : 10}}</p>
+    <a [routerLink]="['/posts', postDetails.id]" class="link">See more</a>
+  </div>
+</div>
+
+

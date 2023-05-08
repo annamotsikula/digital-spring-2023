@@ -4,6 +4,7 @@ import { Post } from './entity/post.interface';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-posts',
@@ -13,8 +14,9 @@ import { FormControl } from '@angular/forms';
 export class PostsComponent implements OnInit {
   posts: Post[] = []
   newPostForm: FormGroup;
-  showForm: boolean
-  constructor(private _postService: APIService, private _formBuilder: FormBuilder) {
+  showForm: boolean;
+  searchKey: string = ''
+  constructor(private _postService: APIService, private _formBuilder: FormBuilder, private _router: Router) {
     this.showForm = false
     this.newPostForm = this._formBuilder.group({
       title: this._formBuilder.control('', [Validators.required]) ,
@@ -26,6 +28,7 @@ export class PostsComponent implements OnInit {
   ngOnInit(): void {
     this._postService.getPosts().subscribe(data => {
       this.posts = data
+      console.log(this.posts)
     })
   }
 
@@ -35,7 +38,8 @@ export class PostsComponent implements OnInit {
     })
   }
 
-  deletePostById(id: number | undefined) {
+  deletePostById(id: any) {
+    
     if(id !== undefined) {
       this._postService.deletePost(id).subscribe(_ => {
         const postIndex = this.posts.findIndex(singlePost => singlePost.id === id);
@@ -65,5 +69,14 @@ export class PostsComponent implements OnInit {
   }
   get content() {
     return this.newPostForm.get('content') as FormControl
+  }
+  goToDetails() {
+    this._router.navigate([])
+    
+  }
+
+  searchByKey() {
+    console.log('Search Key :  ', this.searchKey)
+    this.posts = this.posts.filter(item => item.title.includes(this.searchKey))
   }
 }

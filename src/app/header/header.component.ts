@@ -40,6 +40,10 @@ export class HeaderComponent implements OnInit {
       path: 'student-profile',
       name: 'Student Profile'
     },
+    {
+      path: 'posts',
+      name: 'News Feed'
+    },
   ]
 
   constructor(private _router: Router) {}

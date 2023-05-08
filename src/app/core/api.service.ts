@@ -25,4 +25,9 @@ export class APIService {
 
     }
 
+    getSinglePost(id: number): Observable<Post> {
+        return this._http.get<Post>(`${baseUrl}/posts/${id}`)
+    }
+
+
 }
