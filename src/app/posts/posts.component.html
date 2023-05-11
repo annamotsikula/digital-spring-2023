@@ -22,8 +22,10 @@
   <input type="text" class="input-field" [(ngModel)]='searchKey'> 
   <button (click)="searchByKey()">Search</button>
 </div>
-<div class="row">
-    <div class="mb-3" *ngFor="let post of posts">
+<app-pagination [pagination]="pagination" (itemsAmountPerPage)="changeAmountView($event)" ></app-pagination>
+
+<div class="row row-cols-3">
+    <div class="mb-3 col" *ngFor="let post of posts">
       <app-post-card [postDetails]="post" (sendPostToDelete)="deletePostById($event)"></app-post-card>
     </div>
 </div>

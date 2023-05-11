@@ -7,6 +7,7 @@ import { PostCardComponent } from './post-card/post-card.component';
 import { PostsComponent } from './posts.component';
 import { PostDetailsComponent } from './post-details/post-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PostDetailsComponent,
     PostCardComponent,
     TruncateStringPipe,
+    PaginationComponent,
   ],
   imports: [
     CommonModule,

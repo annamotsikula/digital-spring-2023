@@ -1,0 +1,15 @@
+<div class="d-flex m-auto justify-content-around align-items-center">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item" *ngFor="let page of pagination"><a class="page-link" (click)="updatePage(page)" [ngClass]="{'active' : (currentPageObs$ | async) === page}">{{page}}</a></li>
+      </ul>
+    </nav>
+    <div class="d-flex align-items-center">
+      <span class="me-2">Items per Page</span>
+      <select (change)="changeAmountView()" [(ngModel)]="amount">
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+      </select>
+    </div>
+  </div>

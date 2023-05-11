@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, filter, map, mergeMap, of, tap, toArray } from 'rxjs';
+import { Observable, filter, map, mergeMap, of, switchMap, tap, toArray } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +17,9 @@ export class AppComponent implements OnInit {
       filter(num => num < 100),
       map(num => num * 10),
       tap(data => console.log(`Number entered filter successfully: ${data}`)),
-      toArray()
+      toArray(),
+      switchMap(data => of(data).pipe()
+      )
     )
     // .subscribe(result => this.numbers = result)
 
@@ -27,7 +29,7 @@ export class AppComponent implements OnInit {
     const randomNumber = Math.ceil( Math.random() * 100);
     console.log('Value emitted, ', randomNumber);
     this.numbers$ = this.numbers$.pipe(
-      mergeMap((value) => of([...this.numbers, randomNumber]))
+      mergeMap((value) => of([...value, randomNumber]))
     )
   }
 }
