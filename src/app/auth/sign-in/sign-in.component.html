@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="sign-in-box">
+        <form [formGroup]="authForm" (submit)="submit()">
+            <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+        
+            <div class="form-floating">
+              <input type="email" class="form-control" id="floatingInput" placeholder="Enter username..." formControlName="username" >
+              <label for="floatingInput">Email address</label>
+            </div>
+            <div *ngIf="!form.controls['username']?.valid && form.controls['username'].dirty">
+                <span class="text-danger">Username is required</span>
+            </div>
+            <div class="form-floating">
+              <input type="password" class="form-control" id="floatingPassword" placeholder="Password" formControlName="pwd">
+              <label for="floatingPassword">Password</label>
+            </div>
+        
+            <div class="checkbox mb-3">
+              <label>
+                <input type="checkbox" value="remember-me" formControlName="rememberMe"> Remember me
+              </label>
+            </div>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+          </form>
+    </div>
+
+
+</div>

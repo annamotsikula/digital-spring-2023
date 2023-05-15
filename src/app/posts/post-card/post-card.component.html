@@ -5,7 +5,7 @@
           <button class="btn btn-warning" (click)="sendPostToDelete(postDetails.id!)">X</button>
       </div>
     <p class="card-text">{{postDetails.body | truncateString : 10}}</p>
-    <a [routerLink]="['/posts', postDetails.id]" class="link">See more</a>
+    <a [routerLink]="['/main/posts', postDetails.id]" class="link">See more</a>
   </div>
 </div>
 

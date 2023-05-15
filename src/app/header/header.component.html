@@ -11,8 +11,7 @@
         [routerLinkActiveOptions]="{exact: true}"
         routerLinkActive="active"
         [ngClass]="{'dropdown-toggle' : nav.children}"
-        >{{ nav.name }}</a
-      >
+        >{{ nav.name }}</a>
       <ul class="dropdown-menu" *ngIf="nav.children">
         <li *ngFor="let childnav of nav.children">
           <a
@@ -23,7 +22,12 @@
           >
         </li>
       </ul>
-
+    </li>
+    <li>
+      <a
+      class="nav-link"
+     (click)="logOut()"
+      >Log Out</a>
     </li>
   </ul>
 </div>

@@ -22,4 +22,8 @@ export class StorageService {
   clearStorage() {
     this._localStorage.clear() 
   }
+
+  keyExists(key: string): boolean {
+    return !!this.get(key)
+  }
 }

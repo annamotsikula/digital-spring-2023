@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { baseUrl } from "./constants";
+import { authUrl, baseUrl } from "./constants";
 import { BehaviorSubject, Observable, map, tap } from "rxjs";
 import { Post } from "../posts/entity/post.interface";
 
@@ -44,6 +44,12 @@ export class APIService {
             ),
        )
     }
+
+    signIn(data: {username: string, password: string}): Observable<any> {
+        return this._http.post(`${authUrl}/auth/login`, data)
+    }
+
+    
 
 
 }

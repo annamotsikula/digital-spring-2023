@@ -6,16 +6,19 @@ import { DirectivesComponent } from './directives/directives.component';
 import { PipesComponent } from './pipes/pipes.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { StudentResumeComponent } from './student-resume/student-resume.component';
+import { authGuard, isAuthorized } from './helpers/guard/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'main',
-    pathMatch: 'full'
+    loadChildren: () => import('./auth/auth.module').then(m=> m.AuthModule),
+    canActivate: [ isAuthorized ]
+    // pathMatch: 'full'
   },
   {
     path: 'main',
     component: MainComponent,
+    canActivate: [ authGuard ],
     children: [
       {
         path: 'resume-builder',
@@ -32,16 +35,16 @@ const routes: Routes = [
       {
         path: 'pipes',
         component: PipesComponent
-      }
+      },
+      {
+        path: 'posts',
+        loadChildren: () => import('./posts/posts.module').then(m => m.PostsModule)
+      },
+      {
+        path: 'student-profile',
+        loadChildren: () => import('./student/student.module').then(m => m.StudentModule)
+      },
     ]
-  },
-  {
-    path: 'posts',
-    loadChildren: () => import('./posts/posts.module').then(m => m.PostsModule)
-  },
-  {
-    path: 'student-profile',
-    loadChildren: () => import('./student/student.module').then(m => m.StudentModule)
   },
   {
     path: '**',
