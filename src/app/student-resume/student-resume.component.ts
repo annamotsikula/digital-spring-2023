@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { countries } from './entity/country-list';
 import { ageValidator } from './validators/age-validator';
+import { APIService } from '../core/api.service';
 
 @Component({
   selector: 'app-student-resume',
@@ -11,7 +12,7 @@ import { ageValidator } from './validators/age-validator';
 export class StudentResumeComponent implements OnInit {
   resumeForm: FormGroup
   countryList: string[]
-  constructor() {
+  constructor(public api: APIService) {
     this.resumeForm = new FormGroup({
       firstName: new FormControl('', [Validators.required]),
       lastName: new FormControl('', [Validators.required, Validators.minLength(2)]),
@@ -77,5 +78,7 @@ export class StudentResumeComponent implements OnInit {
     // console.log(this.resumeForm)
 
   }
-
+  increment() {
+    this.api.increase()
+  }
 }

@@ -20,7 +20,7 @@ export class PostsComponent implements OnInit , OnDestroy {
   pagination: number[] = [];
   currentPage: number = 1
   itemsAmountPerPage: number
-  constructor(private _postService: APIService, private _formBuilder: FormBuilder, private _router: Router) {
+  constructor(public _postService: APIService, private _formBuilder: FormBuilder, private _router: Router) {
     this.itemsAmountPerPage = 10
     this.showForm = false
     this.newPostForm = this._formBuilder.group({
@@ -117,5 +117,9 @@ ngOnDestroy(): void {
 
   goToDetails() {
     this._router.navigate([])
+  }
+
+  increment() {
+    this._postService.increase()
   }
 }

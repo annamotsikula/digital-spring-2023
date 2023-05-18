@@ -8,6 +8,10 @@ export class StorageService {
   constructor() { }
 
   get(key: string): any | undefined {
+    const result = this._localStorage.getItem(key)
+    if(result !== null) {
+      return JSON.parse(result)
+    }
     return this._localStorage.getItem(key) || undefined
   }
 

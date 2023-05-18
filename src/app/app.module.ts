@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -15,6 +15,7 @@ import { TodoItemComponent } from './todo-item/todo-item.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { StudentResumeComponent } from './student-resume/student-resume.component';
+import { RequestInterceptor } from './core/request.interceptor';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,17 @@ import { StudentResumeComponent } from './student-resume/student-resume.componen
     HttpClientModule
   
   ],
-  providers:[],
+  providers:[ 
+   
+    // {
+    //   provide:  APIService, useClass: APIServiceTest
+    // },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RequestInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

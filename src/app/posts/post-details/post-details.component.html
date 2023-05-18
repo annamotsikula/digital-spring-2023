@@ -1,6 +1,6 @@
 <div class="container">
     <a [routerLink]="['../']" class="btn btn-primary">Return to posts</a>
-    <div class="card mb-3 mt-3" *ngIf="(postDetails$ | async) as postData">
+    <div class="card mb-3 mt-3" *ngIf="postData">
         <img src="https://www.indivstock.com/static35/preview2/stock-vector-document-icon-illustrated-in-vector-on-white-background-518664.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{postData.title}}</h5>

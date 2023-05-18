@@ -4,10 +4,8 @@ import { authUrl, baseUrl } from "./constants";
 import { BehaviorSubject, Observable, map, tap } from "rxjs";
 import { Post } from "../posts/entity/post.interface";
 
-@Injectable({
-    providedIn: 'root'
-}) 
-export class APIService {
+@Injectable() 
+export class APIServiceTest {
     pagination$: BehaviorSubject<number | null> = new BehaviorSubject<number | null>(null);
     currentPage$: BehaviorSubject<number> = new BehaviorSubject<number>(1)
 
@@ -52,7 +50,7 @@ export class APIService {
     }
 
     increase() {
-        this.number++
+        this.number+=10
     }
     
 

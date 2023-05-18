@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Observable, filter, map, mergeMap, of, switchMap, tap, toArray } from 'rxjs';
 
 @Component({
@@ -6,12 +6,13 @@ import { Observable, filter, map, mergeMap, of, switchMap, tap, toArray } from '
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
 
   numbers: number[] = [12, 14, 40, 340, 120, 875]
   numbers$!: Observable<number[]>
-  ngOnInit() {
 
+  @ViewChild('testbutton') btn!: ElementRef 
+  ngOnInit() {
     this.numbers$  =  of(...this.numbers).pipe(
       tap(data => console.log(data)),
       filter(num => num < 100),
@@ -24,13 +25,20 @@ export class AppComponent implements OnInit {
     // .subscribe(result => this.numbers = result)
 
   }
-
+  ngAfterViewInit(): void {
+  }
   emitNewNumber() {
     const randomNumber = Math.ceil( Math.random() * 100);
     console.log('Value emitted, ', randomNumber);
     this.numbers$ = this.numbers$.pipe(
       mergeMap((value) => of([...value, randomNumber]))
     )
+  }
+
+  showInfo() {
+    console.log('Button clicked')
+    const btnElement = this.btn.nativeElement as HTMLButtonElement
+    btnElement.style.backgroundColor = '#ccc'
   }
 }
 

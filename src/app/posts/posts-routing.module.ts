@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PostDetailsComponent } from './post-details/post-details.component';
 import { PostsComponent } from './posts.component';
+import { postDetailResolver } from '../helpers/resolvers/httpresolver.resolver';
 
 const routes: Routes = [
   {
@@ -10,7 +11,8 @@ const routes: Routes = [
   },
   {
     path: ':id',
-    component: PostDetailsComponent
+    component: PostDetailsComponent,
+    resolve: { postDetailData: postDetailResolver }
   }
 
 ];

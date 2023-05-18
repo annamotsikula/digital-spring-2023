@@ -12,19 +12,24 @@ import { Observable, map, tap } from 'rxjs';
 export class PostDetailsComponent implements OnInit{
   postId!: number
   postData!: Post
+  
   postDetails$!: Observable<Post>
-  constructor(private _route: ActivatedRoute, private _service: APIService) {
-    const currentRouteSnapshot = this._route.snapshot
-    this.postId = Number(currentRouteSnapshot.paramMap.get('id'));
 
+
+  constructor(private _route: ActivatedRoute, private _service: APIService) {
+    // const currentRouteSnapshot = this._route.snapshot
+    // this.postId = Number(currentRouteSnapshot.paramMap.get('id'));
+    // console.log(this._route)
+    this.postData = this._route.snapshot.data['postDetailData']
+    
 
 
   }
 
   ngOnInit(): void {
-    this.postDetails$ = this.getPost().pipe(
-      tap(item => console.log(item.body.at(2)))
-    )
+    // this.postDetails$ = this.getPost().pipe(
+    //   tap(item => console.log(item.body.at(2)))
+    // )
   }
 
   getPost(): Observable<Post> {
